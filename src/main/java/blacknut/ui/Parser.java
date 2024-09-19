@@ -51,7 +51,6 @@ class Parser {
         return description;
     }
 
-
     /**
      * Parses the deadline details from the user input.
      *

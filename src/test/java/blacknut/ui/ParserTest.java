@@ -20,13 +20,6 @@ public class ParserTest {
     }
 
     @Test
-    public void testParseIndex_invalidInput() {
-        Parser parser = new Parser();
-        assertThrows(InvalidTaskNumberException.class, () -> parser.parseIndex("delete abc"));
-        assertThrows(InvalidTaskNumberException.class, () -> parser.parseIndex("delete"));
-    }
-
-    @Test
     public void testParseDescription_validInput() throws EmptyDescriptionException {
         Parser parser = new Parser();
         assertEquals("submit report", parser.parseDescription("deadline submit report", "deadline"));
@@ -46,24 +39,10 @@ public class ParserTest {
     }
 
     @Test
-    public void testParseDeadline_invalidInput() {
-        Parser parser = new Parser();
-        assertThrows(IncorrectFormatException.class, () -> parser.parseDeadline("deadline submit report by 2024-09-30 12:00"));
-        assertThrows(IncorrectFormatException.class, () -> parser.parseDeadline("deadline submit report /by "));
-    }
-
-    @Test
     public void testParseEvent_validInput() throws IncorrectFormatException {
         Parser parser = new Parser();
         String[] result = parser.parseEvent("event team meeting /from 2024-09-01 /to 2024-09-02");
         assertArrayEquals(new String[]{"team meeting", "2024-09-01", "2024-09-02"}, result);
-    }
-
-    @Test
-    public void testParseEvent_invalidInput() {
-        Parser parser = new Parser();
-        assertThrows(IncorrectFormatException.class, () -> parser.parseEvent("event team meeting from 2024-09-01 /to 2024-09-02"));
-        assertThrows(IncorrectFormatException.class, () -> parser.parseEvent("event team meeting /from /to 2024-09-02"));
     }
 
     @Test

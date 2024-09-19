@@ -33,7 +33,7 @@ test {
 }
 
 application {
-    mainClass.set("blacknut.ui.Blacknut")
+    mainClass.set("blacknut.ui.Main")
 }
 
 shadowJar {
@@ -60,5 +60,5 @@ dependencies {
     implementation group: 'org.openjfx', name: 'javafx-fxml', version: javaFxVersion, classifier: 'linux'
     implementation group: 'org.openjfx', name: 'javafx-graphics', version: javaFxVersion, classifier: 'win'
     implementation group: 'org.openjfx', name: 'javafx-graphics', version: javaFxVersion, classifier: 'mac'
-    implementation group: 'org.openjfx', name: 'javafx-graphics', version: javaFxVersion, classifier: 'linux'
+    implementation group:   'org.openjfx', name: 'javafx-graphics', version: javaFxVersion, classifier: 'linux'
 }
